@@ -4,13 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <title>Todo app - Vue.js</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon-->
+	  <link rel="shortcut icon" href="icon.ico">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/e83f3d7848.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
-    <div id="app">{{ message }}</div>
-
+<body>
+    <div id="app">
+        <h1 class="heading">TODO APP <i class="fab fa-vuejs fa-xs icon"></i></h1>
+        <div class="inputDiv">
+            <input class="input" type="text" v-model="todo" placeholder="Enter your todo here">
+            <button class="addButton" @click="storeTodo"><i class="fas fa-plus fa-2x"></i></button>
+        </div>
+        <div class="container">
+            <div class="item" v-for="(todo, index) in todos">
+              <div class="itemInput">
+                {{ todo }}
+              </div>
+                <button class="doneButton" @click="editTodo(index, todo)">Done</button>
+                <button class="removeTodo" @click="removeTodo(index)">Remove</button>
+            </div> 
+        </div>
+    </div>
+    <div id="footer">
+      <p><a href="https://github.com/soham-dixit/todo-app-vuejs" target="_blank">Source code</a></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="js/main.js"></script>
-  </body>
+</body>
 </html>
