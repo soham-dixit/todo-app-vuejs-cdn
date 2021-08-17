@@ -86,7 +86,7 @@ h1 {
   cursor: pointer;
 }
 
-.doneButton {
+.doneTodo {
   font-size: 1rem;
   margin: 0 0.5rem;
   font-family: "Sriracha", cursive;
@@ -129,4 +129,8 @@ h1 {
   width: 100%;
   text-decoration: none;
   font-family: "Ubuntu", sans-serif;
+}
+
+.strikeout{
+  text-decoration: line-through;
 }

@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
     <!-- Favicon-->
-	  <link rel="shortcut icon" href="icon.ico">
+    <link rel="shortcut icon" href="icon.ico" />
     <!-- CSS Link -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- font awesome -->
@@ -23,27 +23,41 @@
       crossorigin="anonymous"
     ></script>
   </head>
-<body>
+  <body>
     <div id="app">
-        <h1 class="heading">TODO APP <i class="fab fa-vuejs fa-xs icon"></i></h1>
-        <div class="inputDiv">
-            <input class="input" type="text" v-model="todo" placeholder="Enter your todo here">
-            <button class="addButton" @click="storeTodo"><i class="fas fa-plus fa-2x"></i></button>
+      <h1 class="heading">TODO APP <i class="fab fa-vuejs fa-xs icon"></i></h1>
+      <div class="inputDiv">
+        <input
+          class="input"
+          type="text"
+          v-model="todo"
+          placeholder="Enter your todo here"
+        />
+        <button class="addButton" @click="storeTodo">
+          <i class="fas fa-plus fa-2x"></i>
+        </button>
+      </div>
+      <div class="container">
+        <div class="item" v-for="(todo, index) in todos">
+          <div
+            class="itemInput"
+            :class="{'strikeout': todo.isStrikedOff == true}"
+          >
+            {{ todo.name }}
+          </div>
+          <button class="doneTodo" @click="doneTodo(index)">Done</button>
+          <button class="removeTodo" @click="removeTodo(index)">Remove</button>
         </div>
-        <div class="container">
-            <div class="item" v-for="(todo, index) in todos">
-              <div class="itemInput">
-                {{ todo }}
-              </div>
-                <!-- <button class="doneButton"  @click="editTodo(index, todo)">Done</button> -->
-                <button class="removeTodo" @click="removeTodo(index)">Remove</button>
-            </div> 
-        </div>
+      </div>
     </div>
     <div id="footer">
-      <p><a href="https://github.com/soham-dixit/todo-app-vuejs" target="_blank">Source code</a></p>
+      <p>
+        <a href="https://github.com/soham-dixit/todo-app-vuejs" target="_blank"
+          >Source code</a
+        >
+      </p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
