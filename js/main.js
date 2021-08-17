@@ -10,8 +10,10 @@
             
             methods: {
                 storeTodo() {
-                    this.todos.push(this.todo)
-                    this.todo = ''
+                    if(this.todo!=""){
+                        this.todos.push(this.todo)
+                        this.todo = ''
+                    }
                 },
 
                 removeTodo(index) {
